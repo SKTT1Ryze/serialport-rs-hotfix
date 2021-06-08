@@ -80,7 +80,7 @@ impl COMPort {
         dcb::set_stop_bits(&mut dcb, builder.stop_bits);
         dcb::set_flow_control(&mut dcb, builder.flow_control);
         // 为了实验能通过，这里把这行注释掉，否则蓝牙会连上之后立马断开连接
-        dcb::set_dcb(handle, dcb)?;
+        // dcb::set_dcb(handle, dcb)?;
 
         let mut com = COMPort::open_from_raw_handle(handle as RawHandle);
         com.set_timeout(builder.timeout)?;
